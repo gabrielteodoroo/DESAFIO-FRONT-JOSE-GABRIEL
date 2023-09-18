@@ -1,0 +1,28 @@
+.button__nota {
+  height: 100%;
+  background-color: #e9ff1a;
+  border-radius: 12px;
+  border: none;
+
+  padding: 0 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.3s;
+
+  cursor: pointer;
+}
+
+.button__nota img {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+.button__nota span {
+  font-weight: 600;
+}
+
+.button__nota:hover {
+  background-color: #7e8a19;
+}

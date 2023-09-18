@@ -1,0 +1,61 @@
+.card__result {
+  width: 157px;
+  height: 146px;
+  border-radius: 20px;
+  padding-top: 10px;
+  transition: 0.5s;
+
+  cursor: pointer;
+}
+
+.card__result:hover {
+  opacity: 0.7;
+}
+
+.card__header {
+  padding-left: 20px;
+}
+
+.card__title {
+  font-weight: 100;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.card__container {
+  display: flex;
+  align-items: start;
+  position: relative;
+}
+
+.card__data {
+  font-size: 1.2rem;
+  color: #ecedee;
+}
+
+.card__nota {
+  width: 100%;
+  height: 30px;
+  margin-top: 45px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  background-color: rgba(15, 15, 15, 0.7);
+}
+
+.delete__button {
+  cursor: pointer;
+  transition: 0.5s;
+  position: absolute;
+  right: -40px;
+}
+
+.delete__button:hover {
+  opacity: 0.7;
+}
+
+.nota__result {
+  font-size: 1.2rem;
+  margin-left: 5px;
+}
