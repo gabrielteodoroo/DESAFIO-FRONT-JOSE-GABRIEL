@@ -23,8 +23,6 @@ const CardResult = (props: {
   setRender: any;
   type: string;
   setUpdateModal: any;
-  isOpen: boolean;
-  setIsOpen: any;
 }) => {
   const [background, setBackground] = useState("");
   const [notaColor, setNotaColor] = useState("");
@@ -62,7 +60,8 @@ const CardResult = (props: {
     setData(dataFormatada);
     setColor();
     fetchIcon();
-  }, []);
+    console.log("ok");
+  });
 
   async function handleDeleteUser() {
     await deleteResult(props.result.id);
@@ -72,7 +71,7 @@ const CardResult = (props: {
 
   function handleChandeUpdateModal() {
     props.setUpdateModal(props.result);
-    props.setIsOpen(true);
+    // props.setIsOpen(true);
   }
 
   return (

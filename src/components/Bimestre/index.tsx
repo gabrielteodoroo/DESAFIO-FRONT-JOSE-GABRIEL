@@ -17,7 +17,6 @@ const Bimestre = (props: IBimestre) => {
   const [quarto, setQuarto] = useState<Result[]>([]);
   const [render, setRender] = useState(false);
   const [updateModal, setUpdateModal] = useState<Result>(result[0]);
-  const [isOpen, setIsOpen] = useState(false);
   async function fetchResults() {
     const allResults = await loadResults();
 
@@ -44,10 +43,6 @@ const Bimestre = (props: IBimestre) => {
     buscarBimestre();
   }, [result]);
 
-  function handleUpdateResult(card: Result) {
-    setUpdateModal(card);
-    setIsOpen(true);
-  }
   return (
     <div className="bimestre">
       <LancarNota
@@ -63,8 +58,6 @@ const Bimestre = (props: IBimestre) => {
         {props.bimestre === "Bimestre 1" &&
           primeiro.map((card, indice) => (
             <CardResult
-              isOpen={isOpen}
-              setIsOpen={setIsOpen}
               render={render}
               setRender={setRender}
               key={indice}
@@ -77,8 +70,6 @@ const Bimestre = (props: IBimestre) => {
         {props.bimestre === "Bimestre 2" &&
           segundo.map((card, indice) => (
             <CardResult
-              isOpen={isOpen}
-              setIsOpen={setIsOpen}
               render={render}
               setRender={setRender}
               key={indice}
@@ -91,8 +82,6 @@ const Bimestre = (props: IBimestre) => {
         {props.bimestre === "Bimestre 3" &&
           terceiro.map((card, indice) => (
             <CardResult
-              isOpen={isOpen}
-              setIsOpen={setIsOpen}
               render={render}
               setRender={setRender}
               key={indice}
@@ -105,8 +94,6 @@ const Bimestre = (props: IBimestre) => {
         {props.bimestre === "Bimestre 4" &&
           quarto.map((card, indice) => (
             <CardResult
-              isOpen={isOpen}
-              setIsOpen={setIsOpen}
               render={render}
               setRender={setRender}
               key={indice}
