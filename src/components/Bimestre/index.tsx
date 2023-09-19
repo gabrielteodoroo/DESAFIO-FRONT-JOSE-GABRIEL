@@ -32,11 +32,39 @@ const Bimestre = (props: IBimestre) => {
     const SBimestre = result.filter((card) => card.bimestre === "SEGUNDO");
     const TBimestre = result.filter((card) => card.bimestre === "TERCEIRO");
     const QBimestre = result.filter((card) => card.bimestre === "QUARTO");
+    const ordem = ["BIOLOGIA", "ARTES", "GEOGRAFIA", "SOCIOLOGIA"];
 
-    setSegundo(SBimestre);
-    setTerceiro(TBimestre);
-    setQuarto(QBimestre);
-    setPrimeiro(PBimestre);
+    function setOrder(bimestreOrder: Result[]) {
+      const bimestreSort = bimestreOrder.sort((a, b) => {
+        const nomeA = a.disciplina;
+        const nomeB = b.disciplina;
+
+        const indexA = ordem.indexOf(nomeA);
+        const indexB = ordem.indexOf(nomeB);
+
+        if (indexA === -1 && indexB === -1) {
+          return nomeA.localeCompare(nomeB);
+        } else if (indexA === -1) {
+          return 1;
+        } else if (indexB === -1) {
+          return -1;
+        }
+
+        return indexA - indexB;
+      });
+
+      return bimestreSort;
+    }
+
+    const PBimestreOrder = setOrder(PBimestre);
+    const SBimestreOrder = setOrder(SBimestre);
+    const TBimestreOrder = setOrder(TBimestre);
+    const QBimestreOrder = setOrder(QBimestre);
+
+    setSegundo(SBimestreOrder);
+    setTerceiro(TBimestreOrder);
+    setQuarto(QBimestreOrder);
+    setPrimeiro(PBimestreOrder);
   }
 
   useEffect(() => {

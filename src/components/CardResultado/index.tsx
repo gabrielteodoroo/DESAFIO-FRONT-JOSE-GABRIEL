@@ -60,7 +60,6 @@ const CardResult = (props: {
     setData(dataFormatada);
     setColor();
     fetchIcon();
-    console.log("ok");
   });
 
   async function handleDeleteUser() {
