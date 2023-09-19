@@ -4,12 +4,6 @@
   border-radius: 20px;
   padding-top: 10px;
   transition: 0.5s;
-
-  cursor: pointer;
-}
-
-.card__result:hover {
-  opacity: 0.7;
 }
 
 .card__header {

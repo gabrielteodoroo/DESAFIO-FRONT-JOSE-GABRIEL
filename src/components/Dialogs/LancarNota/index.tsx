@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./styles.css";
 import api from "../../../services/api";
+import { Result } from "../../CardResultado";
 
 export const LancarNota = (props: {
   bimestre: string;
@@ -62,8 +63,15 @@ export const LancarNota = (props: {
         `.${bimestreName}`
       ) as HTMLDialogElement;
       dialog?.close();
-    } catch (error) {
-      alert("Essa nota já foi lançada");
+      setInputNota("");
+      setDisciplinaName("");
+    } catch (error: any) {
+      if (error.response.data.message === "Essa nota já foi lançada") {
+        alert(error.response.data.message);
+      }
+      if (inputNota === "" || disciplinaName === "") {
+        alert("Selecione a disciplina e informe a nota");
+      }
     }
   }
   return (
@@ -74,6 +82,8 @@ export const LancarNota = (props: {
           <strong
             className="dialog__close"
             onClick={() => {
+              setDisciplinaName("");
+              setInputNota("");
               const dialog = document.querySelector(
                 `.${bimestreName}`
               ) as HTMLDialogElement;
